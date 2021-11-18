@@ -72,5 +72,10 @@ const deleteLibros = async (req, res) => {
    ? res.status(400).send("book no fount")
    : res.status(200).send("book deleted")
 }
-
-export default { registerLibro, listLibros,updateLibros, deleteLibros };
+const listarLibro =async (req, res) => {
+      const libroId =await libros.findById({ _id: req.params["_id"]});
+      return !libroId 
+      ? res.status(400).send("book no fount")
+      : res.status(200).send({libroId})
+}
+export default { registerLibro, listLibros,updateLibros, deleteLibros,listarLibro };

@@ -5,6 +5,7 @@ const clienteShema= new mongoose.Schema({
     email: String,
     password: String,
     registerDate: {type: Date ,default: Date.now},
+    roleId: { type: mongoose.Schema.ObjectId, ref: "roles" },
     dbStatus: Boolean,
 })
 
